@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://eslib7d2a047"]
+
+[ext_resource type="Script" path="res://mainmenu.gd" id="1_1yx00"]
+[ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_i7n5u"]
+[ext_resource type="Texture2D" uid="uid://cw3gdswut3lvl" path="res://random/left.jpg" id="3_tots8"]
+[ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://random/right.jpg" id="4_byj0b"]
+
+[sub_resource type="Animation" id="Animation_k8bus"]
+resource_name = "curtain"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("left:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(156.173, 311.711), Vector2(0, 311.711)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("left:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("right:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(465.827, 309.855), Vector2(621.827, 309.855)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("right:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-0.00321543, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gfa85"]
+_data = {
+"curtain": SubResource("Animation_k8bus")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1yx00")
+gaymes = Array[PackedScene]([ExtResource("2_i7n5u")])
+
+[node name="game" type="Node2D" parent="."]
+
+[node name="actualgame" type="Node2D" parent="game"]
+
+[node name="placeholder_gaem" type="Node2D" parent="game/actualgame"]
+
+[node name="curtain" type="Node2D" parent="."]
+scale = Vector2(1.85691, 1.07792)
+
+[node name="left" type="Sprite2D" parent="curtain"]
+position = Vector2(0, 311.711)
+scale = Vector2(1e-05, 1)
+texture = ExtResource("3_tots8")
+
+[node name="right" type="Sprite2D" parent="curtain"]
+position = Vector2(621.827, 309.855)
+scale = Vector2(-0.00321543, 1)
+texture = ExtResource("4_byj0b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="curtain"]
+libraries = {
+"": SubResource("AnimationLibrary_gfa85")
+}
+
+[node name="ui" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="ui"]
+offset_left = 425.0
+offset_top = 217.0
+offset_right = 582.0
+offset_bottom = 248.0
+text = "lets gooooooooooo"
+
+[connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]
