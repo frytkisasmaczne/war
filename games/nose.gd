@@ -5,6 +5,7 @@ extends Node2D
 var center: Vector2
 var circle: CircleShape2D
 var rng: RandomNumberGenerator
+var timer: Timer
 
 signal seppuku(brud: Node2D)
 
@@ -25,11 +26,15 @@ func _ready():
 			var brud: Node2D = brudy[0].instantiate()
 			brud.position += brudpos
 			$brudy.add_child(brud)
-
+	timer = Timer.new()
+	add_child(timer)
+	timer.timeout.connect(lose)
+	timer.start(10)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if $timer.text != "":
+		$timer.text = str(int(timer.time_left))
 
 
 func sudoku(brud: Node2D):
@@ -40,7 +45,12 @@ func sudoku(brud: Node2D):
 		winek()
 
 
+func lose():
+	$"../../..".end.emit(false)
+
 func winek():
+	$timer.text = ""
+	timer.stop()
 	$AnimationPlayer.play("zoomout")
 	await $AnimationPlayer.animation_finished
 	await get_tree().create_timer(1).timeout

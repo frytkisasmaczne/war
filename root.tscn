@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c77mbeeu6dy1w"]
+[gd_scene load_steps=10 format=3 uid="uid://c77mbeeu6dy1w"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_s7agp"]
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cw3gdswut3lvl" path="res://assets/left.jpg" id="3_xfard"]
 [ext_resource type="PackedScene" uid="uid://cgy5615mcoqvn" path="res://games/nose.tscn" id="4_opn74"]
 [ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://assets/right.jpg" id="4_pliw5"]
+[ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 
 [sub_resource type="Animation" id="Animation_k8bus"]
 resource_name = "curtain"
@@ -66,7 +67,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_s7agp")
-gaymes = Array[PackedScene]([ExtResource("2_4mpov"), ExtResource("3_qab1s"), ExtResource("4_opn74")])
+gaymes = Array[PackedScene]([ExtResource("2_4mpov"), ExtResource("3_qab1s"), ExtResource("4_opn74"), ExtResource("5_frrt1")])
 
 [node name="game" type="Node2D" parent="."]
 

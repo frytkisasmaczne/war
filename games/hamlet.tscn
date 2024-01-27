@@ -1,12 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxtkk2yf7a42"]
+[gd_scene load_steps=15 format=3 uid="uid://cxtkk2yf7a42"]
 
 [ext_resource type="Script" path="res://games/hamlet.gd" id="1_ubw7b"]
 [ext_resource type="Texture2D" uid="uid://dkjfmotwuxk6e" path="res://assets/infinite_monkey_theorem_crosshair.png" id="2_d8oxf"]
 [ext_resource type="PackedScene" uid="uid://f8b0g76dw5ug" path="res://assets/hamlet_quotes/polack_never_will_defend_it.tscn" id="2_mn8gy"]
 [ext_resource type="PackedScene" uid="uid://bcu1s60w8dukr" path="res://assets/hamlet_quotes/against_some_part_of_poland.tscn" id="3_2d6t7"]
+[ext_resource type="PackedScene" uid="uid://6a34210mavwc" path="res://assets/hamlet_quotes/more_things_in_heaven.tscn" id="3_recyo"]
 [ext_resource type="Texture2D" uid="uid://c6ij0vskiak5a" path="res://assets/shiro.png" id="4_bwodh"]
+[ext_resource type="PackedScene" uid="uid://b4qg3i7dggrji" path="res://assets/hamlet_quotes/be_not_be.tscn" id="4_tbs4h"]
 [ext_resource type="Texture2D" uid="uid://c2x8euhnx02t" path="res://assets/infinite_monkey_theorem_chimp.png" id="5_eyss2"]
+[ext_resource type="Texture2D" uid="uid://b0k2tymbd4s54" path="res://assets/infinite_monkey_theorem_paper.png" id="5_pcgc4"]
 [ext_resource type="Texture2D" uid="uid://dc584cgi1t5oc" path="res://assets/infinite_monkey_theorem_typewriter.png" id="6_sl3yg"]
+[ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="11_6fngx"]
 
 [sub_resource type="Animation" id="Animation_oawve"]
 resource_name = "type"
@@ -21,7 +25,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.309]
+"values": [0.0, 1.5708]
 }
 
 [sub_resource type="Animation" id="Animation_4y1iw"]
@@ -59,7 +63,7 @@ _data = {
 
 [node name="hamlet" type="Node2D"]
 script = ExtResource("1_ubw7b")
-quotes = Array[PackedScene]([ExtResource("2_mn8gy"), ExtResource("3_2d6t7")])
+quotes = Array[PackedScene]([ExtResource("2_mn8gy"), ExtResource("3_recyo"), ExtResource("4_tbs4h"), ExtResource("3_2d6t7")])
 
 [node name="Shiro" type="Sprite2D" parent="."]
 position = Vector2(1433, 368)
@@ -68,16 +72,24 @@ texture = ExtResource("4_bwodh")
 
 [node name="typewriter" type="Node2D" parent="."]
 
-[node name="textinside" type="Node2D" parent="typewriter"]
-position = Vector2(554, 540)
+[node name="kartka" type="Node2D" parent="typewriter"]
+
+[node name="InfiniteMonkeyTheoremPaper" type="Sprite2D" parent="typewriter/kartka"]
+position = Vector2(517, 310)
+scale = Vector2(0.763333, 0.763333)
+texture = ExtResource("5_pcgc4")
+
+[node name="textinside" type="Node2D" parent="typewriter/kartka"]
+position = Vector2(524, 484.809)
 
 [node name="typesights" type="Sprite2D" parent="typewriter"]
-position = Vector2(559, 539)
+position = Vector2(529, 523.809)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_d8oxf")
 
 [node name="typehand" type="Sprite2D" parent="typewriter"]
-position = Vector2(523, 715)
+position = Vector2(493, 659.809)
+rotation = 1.5708
 scale = Vector2(0.419598, 0.419598)
 texture = ExtResource("6_sl3yg")
 offset = Vector2(78.6467, -278.838)
@@ -94,3 +106,11 @@ centered = false
 libraries = {
 "": SubResource("AnimationLibrary_qg7jh")
 }
+
+[node name="timer" type="Label" parent="."]
+offset_right = 116.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_6fngx")
+theme_override_font_sizes/font_size = 106
+text = "69"

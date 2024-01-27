@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bn53qch36jcyn"]
+
+[ext_resource type="Texture2D" uid="uid://d2xsq6f4g7u4f" path="res://assets/Minigame_arm_Phases/Minigame_arm_Phase0000.png" id="1_a5f6g"]
+[ext_resource type="Texture2D" uid="uid://cns5puk86ki8g" path="res://assets/Minigame_arm_Phases/Minigame_arm_Phase0001.png" id="2_1ccf5"]
+[ext_resource type="Texture2D" uid="uid://dkrrf8td5g7k5" path="res://assets/Minigame_arm_Phases/Minigame_arm_Phase0002.png" id="3_ywtfv"]
+[ext_resource type="Texture2D" uid="uid://dvpsm1a8yl53u" path="res://assets/Minigame_arm_Phases/Minigame_arm_Phase0003.png" id="4_s2mco"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5f6g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ccf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ywtfv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s2mco")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4qg3i7dggrji"]
+
+[ext_resource type="SystemFont" uid="uid://cw20vin1juia1" path="res://assets/new_system_font.tres" id="1_1o73d"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_left = -161.0
+offset_top = -319.0
+offset_right = 817.0
+offset_bottom = 68.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_1o73d")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "Hamlet: There are
+more things in
+Heaven and Earth,
+Horatio, than
+are dreamt of in
+your [pulse]philosophy[/pulse]"
