@@ -76,13 +76,11 @@ gaymes = Array[PackedScene]([ExtResource("2_4mpov")])
 scale = Vector2(1.85691, 1.07792)
 
 [node name="left" type="Sprite2D" parent="curtain"]
-position = Vector2(0, 311.711)
-scale = Vector2(1e-05, 1)
+position = Vector2(156.173, 311.711)
 texture = ExtResource("3_xfard")
 
 [node name="right" type="Sprite2D" parent="curtain"]
-position = Vector2(621.827, 309.855)
-scale = Vector2(1e-05, 1)
+position = Vector2(465.827, 309.855)
 texture = ExtResource("4_pliw5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="curtain"]

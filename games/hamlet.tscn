@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://1dqyukuccsr1"]
+
+[node name="hamlet" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 250.0
+offset_top = 380.0
+offset_right = 881.0
+offset_bottom = 485.0
+text = "majonez kielecki"
