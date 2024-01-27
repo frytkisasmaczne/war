@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c12h2ywoxd2iv"]
+
+[ext_resource type="Script" path="res://assets/nose/brud.gd" id="1_y7uj5"]
+[ext_resource type="Texture2D" uid="uid://x53p4m13ko21" path="res://assets/nose/minigame_nose_Dirt5.png" id="2_d226k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abat3"]
+radius = 127.475
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_y7uj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d226k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_abat3")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

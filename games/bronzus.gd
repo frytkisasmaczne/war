@@ -3,7 +3,6 @@ extends Node2D
 
 var goal_pet = 5000
 var total_pet = 0
-var mouse_petting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,7 +27,9 @@ var lastmousepos = Vector2.ZERO
 # 		return true
 
 
+
 func _on_area_2d_input_event(viewport:Node, event:InputEvent, shape_idx:int):
-	total_pet += (event.position - lastmousepos).length()
+	if Vector2.ZERO != lastmousepos:
+		total_pet += (event.position - lastmousepos).length()
 	lastmousepos = event.position
 	print(total_pet)

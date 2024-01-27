@@ -2,7 +2,7 @@ extends Node2D
 
 @export var gaymes: Array[PackedScene]
 
-signal end(result)
+signal end(result: bool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,8 +21,8 @@ func _on_button_pressed():
 	await $curtain/AnimationPlayer.animation_finished
 	print(len(gaymes))
 	gaymes.shuffle()
-	if $game/actualgame.get_child(0):
-		$game/actualgame.get_child(0).queue_free()
+	for i in range($game/actualgame.get_child_count()):
+		$game/actualgame.get_child(i).queue_free()
 	$game/actualgame.add_child(gaymes[0].instantiate())
 	# $ui.visible = false
 	
