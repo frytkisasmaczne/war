@@ -1,10 +1,96 @@
-[gd_scene format=3 uid="uid://1dqyukuccsr1"]
+[gd_scene load_steps=11 format=3 uid="uid://cxtkk2yf7a42"]
+
+[ext_resource type="Script" path="res://games/hamlet.gd" id="1_ubw7b"]
+[ext_resource type="Texture2D" uid="uid://dkjfmotwuxk6e" path="res://assets/infinite_monkey_theorem_crosshair.png" id="2_d8oxf"]
+[ext_resource type="PackedScene" uid="uid://f8b0g76dw5ug" path="res://assets/hamlet_quotes/polack_never_will_defend_it.tscn" id="2_mn8gy"]
+[ext_resource type="PackedScene" uid="uid://bcu1s60w8dukr" path="res://assets/hamlet_quotes/against_some_part_of_poland.tscn" id="3_2d6t7"]
+[ext_resource type="Texture2D" uid="uid://c6ij0vskiak5a" path="res://assets/shiro.png" id="4_bwodh"]
+[ext_resource type="Texture2D" uid="uid://c2x8euhnx02t" path="res://assets/infinite_monkey_theorem_chimp.png" id="5_eyss2"]
+[ext_resource type="Texture2D" uid="uid://dc584cgi1t5oc" path="res://assets/infinite_monkey_theorem_typewriter.png" id="6_sl3yg"]
+
+[sub_resource type="Animation" id="Animation_4y1iw"]
+resource_name = "you"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("typewriter:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1668, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("literallyyou:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1620, 0), Vector2(-48, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oawve"]
+resource_name = "type"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("typewriter/typehand:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.309]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qg7jh"]
+_data = {
+"type": SubResource("Animation_oawve"),
+"you": SubResource("Animation_4y1iw")
+}
 
 [node name="hamlet" type="Node2D"]
+script = ExtResource("1_ubw7b")
+quotes = Array[PackedScene]([ExtResource("2_mn8gy"), ExtResource("3_2d6t7")])
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 250.0
-offset_top = 380.0
-offset_right = 881.0
-offset_bottom = 485.0
-text = "majonez kielecki"
+[node name="Shiro" type="Sprite2D" parent="."]
+position = Vector2(1433, 368)
+scale = Vector2(4.66427, 4.66427)
+texture = ExtResource("4_bwodh")
+
+[node name="typewriter" type="Node2D" parent="."]
+
+[node name="textinside" type="Node2D" parent="typewriter"]
+position = Vector2(554, 540)
+
+[node name="typesights" type="Sprite2D" parent="typewriter"]
+position = Vector2(559, 539)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_d8oxf")
+
+[node name="typehand" type="Sprite2D" parent="typewriter"]
+position = Vector2(523, 715)
+scale = Vector2(0.419598, 0.419598)
+texture = ExtResource("6_sl3yg")
+offset = Vector2(78.6467, -278.838)
+
+[node name="literallyyou" type="Node2D" parent="."]
+position = Vector2(1620, 0)
+
+[node name="InfiniteMonkeyTheoremChimp" type="Sprite2D" parent="literallyyou"]
+scale = Vector2(0.764444, 0.764444)
+texture = ExtResource("5_eyss2")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qg7jh")
+}

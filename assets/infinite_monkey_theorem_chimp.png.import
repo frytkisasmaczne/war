@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://slbmvrb03t58"
-path="res://.godot/imported/IMG_20240126_054433.jpeg-27ca9ca41969f882b1fc1adc04dbab14.ctex"
+uid="uid://c2x8euhnx02t"
+path="res://.godot/imported/infinite_monkey_theorem_chimp.png-7a848d758b5ad08ef32819504f4dabc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://random/IMG_20240126_054433.jpeg"
-dest_files=["res://.godot/imported/IMG_20240126_054433.jpeg-27ca9ca41969f882b1fc1adc04dbab14.ctex"]
+source_file="res://assets/infinite_monkey_theorem_chimp.png"
+dest_files=["res://.godot/imported/infinite_monkey_theorem_chimp.png-7a848d758b5ad08ef32819504f4dabc2.ctex"]
 
 [params]
 

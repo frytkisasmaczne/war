@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://f8b0g76dw5ug"]
+
+[ext_resource type="SystemFont" uid="uid://cw20vin1juia1" path="res://assets/new_system_font.tres" id="1_1ve84"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_left = -345.0
+offset_top = -87.0
+offset_right = 633.0
+offset_bottom = 114.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_1ve84")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "Hamlet: Why, then the Polack
+never will [pulse]defend it[/pulse]"
