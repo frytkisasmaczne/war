@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgy5615mcoqvn" path="res://games/nose.tscn" id="4_opn74"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
-[ext_resource type="PackedScene" path="res://games/tophat.tscn" id="6_y41ky"]
+[ext_resource type="PackedScene" uid="uid://cvc2hs7tbmpn" path="res://games/tophat.tscn" id="6_y41ky"]
 [ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
 [ext_resource type="VideoStream" path="res://assets/succ.ogv" id="8_t3bye"]
 [ext_resource type="Texture2D" uid="uid://cvvb2jtspy8a8" path="res://assets/main_menu/button_play_hover.png" id="10_dgfnc"]
@@ -143,6 +143,7 @@ offset_bottom = 879.0
 icon = ExtResource("14_uooaq")
 
 [node name="Popup" type="Control" parent="Control"]
+visible = false
 anchors_preset = 0
 offset_right = 1610.0
 offset_bottom = 903.0
@@ -154,6 +155,7 @@ offset_bottom = 899.0
 texture = ExtResource("17_d5qji")
 
 [node name="creditsText" type="RichTextLabel" parent="Control/Popup"]
+layout_mode = 0
 offset_left = 540.268
 offset_top = 223.607
 offset_right = 1266.27
@@ -179,6 +181,7 @@ Character Design & Cutscene Art
 fit_content = true
 
 [node name="back" type="Button" parent="Control/Popup"]
+layout_mode = 0
 offset_left = 401.0
 offset_top = 812.0
 offset_right = 1226.0
