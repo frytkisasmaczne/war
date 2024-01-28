@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://c77mbeeu6dy1w"]
+[gd_scene load_steps=21 format=3 uid="uid://c77mbeeu6dy1w"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_s7agp"]
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
 [ext_resource type="PackedScene" uid="uid://cxtkk2yf7a42" path="res://games/hamlet.tscn" id="3_qab1s"]
 [ext_resource type="PackedScene" uid="uid://cgy5615mcoqvn" path="res://games/nose.tscn" id="4_opn74"]
+[ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://assets/right.jpg" id="4_pliw5"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
+[ext_resource type="PackedScene" uid="uid://d3hvqb802f4xo" path="res://games/tophat.tscn" id="6_y41ky"]
 [ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
 [ext_resource type="VideoStream" path="res://assets/succ.ogv" id="8_t3bye"]
 [ext_resource type="Texture2D" uid="uid://cvvb2jtspy8a8" path="res://assets/main_menu/button_play_hover.png" id="10_dgfnc"]
@@ -77,7 +79,7 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_s7agp")
-gaymes = Array[PackedScene]([ExtResource("2_4mpov"), ExtResource("3_qab1s"), ExtResource("4_opn74"), ExtResource("5_frrt1")])
+gaymes = Array[PackedScene]([ExtResource("2_4mpov"), ExtResource("3_qab1s"), ExtResource("4_opn74"), ExtResource("5_frrt1"), ExtResource("6_y41ky")])
 rotato = ExtResource("6_wbiou")
 fail = ExtResource("7_7xglk")
 succ = ExtResource("8_t3bye")
@@ -159,14 +161,6 @@ libraries = {
 
 [node name="ui" type="Node2D" parent="."]
 visible = false
-
-[node name="Button" type="Button" parent="ui"]
-offset_left = 97.0
-offset_top = 66.0
-offset_right = 254.0
-offset_bottom = 97.0
-focus_mode = 0
-text = "lets gooooooooooo"
 
 [connection signal="mouse_entered" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_exited"]

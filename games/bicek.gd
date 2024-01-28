@@ -30,6 +30,7 @@ func _input(event):
 
 
 func lose():
+	await get_tree().create_timer(1).timeout
 	$"../../..".end.emit(false)
 
 
@@ -38,4 +39,5 @@ func winek():
 	timer.stop()
 	$VideoStreamPlayer.play()
 	await $VideoStreamPlayer.finished
+	await get_tree().create_timer(2).timeout
 	$"../../..".end.emit(true)

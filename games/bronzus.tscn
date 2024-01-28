@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6nnr4jm1kmvg"]
+[gd_scene load_steps=7 format=3 uid="uid://b6nnr4jm1kmvg"]
 
 [ext_resource type="Script" path="res://games/bronzus.gd" id="1_n4dno"]
 [ext_resource type="Texture2D" uid="uid://slbmvrb03t58" path="res://assets/IMG_20240126_054433.jpeg" id="1_st3jf"]
 [ext_resource type="SpriteFrames" uid="uid://bb2bxso8exq7d" path="res://assets/headpat/headpat.tres" id="3_5lbo4"]
 [ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="4_fjc5i"]
+[ext_resource type="PackedScene" uid="uid://do4ikbfga838e" path="res://ControlsInstruction.tscn" id="5_3roqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvnud"]
 size = Vector2(289, 125)
@@ -36,6 +37,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_fjc5i")
 theme_override_font_sizes/font_size = 106
 text = "69"
+
+[node name="ControlInstruction" parent="." instance=ExtResource("5_3roqn")]
+instruction_id = 1
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

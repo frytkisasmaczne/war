@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxtkk2yf7a42"]
+[gd_scene load_steps=16 format=3 uid="uid://cxtkk2yf7a42"]
 
 [ext_resource type="Script" path="res://games/hamlet.gd" id="1_ubw7b"]
 [ext_resource type="Texture2D" uid="uid://dkjfmotwuxk6e" path="res://assets/infinite_monkey_theorem_crosshair.png" id="2_d8oxf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0k2tymbd4s54" path="res://assets/infinite_monkey_theorem_paper.png" id="5_pcgc4"]
 [ext_resource type="Texture2D" uid="uid://dc584cgi1t5oc" path="res://assets/infinite_monkey_theorem_typewriter.png" id="6_sl3yg"]
 [ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="11_6fngx"]
+[ext_resource type="PackedScene" uid="uid://do4ikbfga838e" path="res://ControlsInstruction.tscn" id="12_mrhyq"]
 
 [sub_resource type="Animation" id="Animation_oawve"]
 resource_name = "type"
@@ -113,3 +114,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("11_6fngx")
 theme_override_font_sizes/font_size = 106
 text = "69"
+
+[node name="ControlInstruction" parent="." instance=ExtResource("12_mrhyq")]
+instruction_id = 2
