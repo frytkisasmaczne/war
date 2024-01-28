@@ -5,6 +5,7 @@ extends Node2D
 @export var fail: VideoStreamTheora
 @export var succ: VideoStreamTheora
 signal end(result: bool)
+var score = 0
 var hp = 3
 
 # Called when the node enters the scene tree for the first time.
@@ -42,6 +43,7 @@ func game_finished(result):
 		$game/actualgame.get_child(i).queue_free()
 	
 	if result:
+		score += 1
 		$transitions/VideoStreamPlayer.stream = succ
 		$transitions/VideoStreamPlayer.visible = true
 		$transitions/VideoStreamPlayer.play()

@@ -24,8 +24,8 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_SPACE:
 			print(pumped)
-			pumped = clampf(pumped + 0.1, 0, 1)
-			if pumped == 1 and $timer.text != "":
+			pumped = clampf(pumped + 0.2, 0, 1)
+			if pumped >= 1 and $timer.text != "":
 				winek()
 
 
