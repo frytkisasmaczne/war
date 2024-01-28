@@ -105,3 +105,11 @@ func _on_flee_mouse_exited():
 
 func _on_flee_pressed():
 	get_tree().quit()
+
+
+func _on_back_pressed():
+	$Control/Popup.visible = false
+
+
+func _on_credits_pressed():
+	$Control/Popup.visible = true

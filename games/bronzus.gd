@@ -23,7 +23,7 @@ func _on_area_2d_input_event(viewport:Node, event:InputEvent, shape_idx:int):
 	if Vector2.ZERO != lastmousepos:
 		total_pet += (event.position - lastmousepos).length()
 		$AnimatedSprite2D.frame = int(int(total_pet)%(50*5)/50)
-		if total_pet >= goal_pet:
+		if total_pet >= goal_pet and $timer.text != "":
 			winek()
 	lastmousepos = event.position
 	print(total_pet)

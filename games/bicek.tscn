@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://bn53qch36jcyn" path="res://assets/renki.tres" id="2_ouptr"]
 [ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="4_0tsf4"]
 [ext_resource type="VideoStream" path="res://assets/minigame_arm_WinScene.ogv" id="5_gs1r3"]
-[ext_resource type="PackedScene" uid="uid://do4ikbfga838e" path="res://ControlsInstruction.tscn" id="5_pppbd"]
+[ext_resource type="PackedScene" path="res://ControlsInstruction.tscn" id="5_pppbd"]
 
 [node name="Bicek" type="Node2D"]
 script = ExtResource("1_8rerg")

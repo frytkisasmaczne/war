@@ -1,13 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://c77mbeeu6dy1w"]
+[gd_scene load_steps=23 format=3 uid="uid://c77mbeeu6dy1w"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_s7agp"]
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
 [ext_resource type="PackedScene" uid="uid://cxtkk2yf7a42" path="res://games/hamlet.tscn" id="3_qab1s"]
 [ext_resource type="PackedScene" uid="uid://cgy5615mcoqvn" path="res://games/nose.tscn" id="4_opn74"]
-[ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://assets/right.jpg" id="4_pliw5"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
-[ext_resource type="PackedScene" uid="uid://d3hvqb802f4xo" path="res://games/tophat.tscn" id="6_y41ky"]
+[ext_resource type="PackedScene" path="res://games/tophat.tscn" id="6_y41ky"]
 [ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
 [ext_resource type="VideoStream" path="res://assets/succ.ogv" id="8_t3bye"]
 [ext_resource type="Texture2D" uid="uid://cvvb2jtspy8a8" path="res://assets/main_menu/button_play_hover.png" id="10_dgfnc"]
@@ -18,7 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://beyk3hst1rqo7" path="res://assets/main_menu/button_flee_hover.png" id="14_5bjcu"]
 [ext_resource type="Texture2D" uid="uid://clyyhq3gdamvy" path="res://assets/main_menu/button_flee.png" id="14_uooaq"]
 [ext_resource type="Texture2D" uid="uid://jmxuv0b81jka" path="res://assets/curtain_left.png" id="16_wg2r3"]
+[ext_resource type="Texture2D" uid="uid://b0k2tymbd4s54" path="res://assets/infinite_monkey_theorem_paper.png" id="17_d5qji"]
 [ext_resource type="Texture2D" uid="uid://bu1nyri22vewf" path="res://assets/curtain_right.png" id="17_mem2j"]
+[ext_resource type="SystemFont" uid="uid://cw20vin1juia1" path="res://assets/new_system_font.tres" id="18_plqg2"]
 
 [sub_resource type="Animation" id="Animation_k8bus"]
 resource_name = "curtain"
@@ -141,6 +142,49 @@ offset_right = 586.0
 offset_bottom = 879.0
 icon = ExtResource("14_uooaq")
 
+[node name="Popup" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 1610.0
+offset_bottom = 903.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Popup"]
+layout_mode = 0
+offset_right = 1599.0
+offset_bottom = 899.0
+texture = ExtResource("17_d5qji")
+
+[node name="creditsText" type="RichTextLabel" parent="Control/Popup"]
+offset_left = 540.268
+offset_top = 223.607
+offset_right = 1266.27
+offset_bottom = 1016.61
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("18_plqg2")
+theme_override_font_sizes/normal_font_size = 30
+text = "            CREDITS
+Character Design & Cutscene Art
+             Paczor
+            Roczo ロチョ
+
+          Minigame Art
+             Paczor
+           Roczo ロチョ
+        Stable Diffusion
+
+           Programming
+               Uso
+             FaraonM
+              Bosman
+"
+fit_content = true
+
+[node name="back" type="Button" parent="Control/Popup"]
+offset_left = 401.0
+offset_top = 812.0
+offset_right = 1226.0
+offset_bottom = 896.0
+text = "GO BACK"
+
 [node name="curtain" type="Node2D" parent="."]
 scale = Vector2(1.85691, 1.07792)
 
@@ -164,10 +208,11 @@ visible = false
 
 [connection signal="mouse_entered" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="pressed" from="Control/TextureRect/credits" to="." method="_on_credits_pressed"]
 [connection signal="mouse_entered" from="Control/TextureRect/play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="Control/TextureRect/play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_exited"]
 [connection signal="pressed" from="Control/TextureRect/flee" to="." method="_on_flee_pressed"]
-[connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Popup/back" to="." method="_on_back_pressed"]
