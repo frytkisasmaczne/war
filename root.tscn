@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c77mbeeu6dy1w"]
+[gd_scene load_steps=20 format=3 uid="uid://c77mbeeu6dy1w"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_s7agp"]
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
@@ -10,6 +10,13 @@
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
 [ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
 [ext_resource type="VideoStream" path="res://assets/succ.ogv" id="8_t3bye"]
+[ext_resource type="Texture2D" uid="uid://cvvb2jtspy8a8" path="res://assets/main_menu/button_play_hover.png" id="10_dgfnc"]
+[ext_resource type="Texture2D" uid="uid://d4d183s5n7ctu" path="res://assets/main_menu/title_page.png" id="11_ou038"]
+[ext_resource type="Texture2D" uid="uid://c6g4od72v4w1t" path="res://assets/main_menu/button_credits.png" id="12_drhj1"]
+[ext_resource type="Texture2D" uid="uid://bimo4m33vcmi2" path="res://assets/main_menu/button_credits_hover.png" id="12_wchgg"]
+[ext_resource type="Texture2D" uid="uid://cx7o4ckkrcs2d" path="res://assets/main_menu/button_play.png" id="13_7qkix"]
+[ext_resource type="Texture2D" uid="uid://beyk3hst1rqo7" path="res://assets/main_menu/button_flee_hover.png" id="14_5bjcu"]
+[ext_resource type="Texture2D" uid="uid://clyyhq3gdamvy" path="res://assets/main_menu/button_flee.png" id="14_uooaq"]
 
 [sub_resource type="Animation" id="Animation_k8bus"]
 resource_name = "curtain"
@@ -74,6 +81,12 @@ gaymes = Array[PackedScene]([ExtResource("2_4mpov"), ExtResource("3_qab1s"), Ext
 rotato = ExtResource("6_wbiou")
 fail = ExtResource("7_7xglk")
 succ = ExtResource("8_t3bye")
+playTextNoHover = ExtResource("13_7qkix")
+playTextOnHover = ExtResource("10_dgfnc")
+creditsTextNoHover = ExtResource("12_drhj1")
+creditsTextOnHover = ExtResource("12_wchgg")
+fleeTextNoHover = ExtResource("14_uooaq")
+fleeTextOnHover = ExtResource("14_5bjcu")
 
 [node name="game" type="Node2D" parent="."]
 
@@ -86,6 +99,45 @@ succ = ExtResource("8_t3bye")
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="transitions"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.720013, 0.720013)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_ou038")
+
+[node name="credits" type="Button" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 434.0
+offset_right = 588.0
+offset_bottom = 650.0
+icon = ExtResource("12_drhj1")
+flat = true
+
+[node name="play" type="Button" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 206.0
+offset_right = 583.0
+offset_bottom = 422.0
+icon = ExtResource("13_7qkix")
+flat = true
+
+[node name="flee" type="MenuButton" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 663.0
+offset_right = 586.0
+offset_bottom = 879.0
+icon = ExtResource("14_uooaq")
 
 [node name="curtain" type="Node2D" parent="."]
 scale = Vector2(1.85691, 1.07792)
@@ -115,4 +167,11 @@ offset_bottom = 97.0
 focus_mode = 0
 text = "lets gooooooooooo"
 
+[connection signal="mouse_entered" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="mouse_entered" from="Control/TextureRect/play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="Control/TextureRect/play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="Control/TextureRect/play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_entered"]
+[connection signal="mouse_exited" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_exited"]
 [connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]

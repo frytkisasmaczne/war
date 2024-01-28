@@ -4,6 +4,14 @@ extends Node2D
 @export var rotato: VideoStreamTheora
 @export var fail: VideoStreamTheora
 @export var succ: VideoStreamTheora
+@export var playTextNoHover: CompressedTexture2D
+@export var playTextOnHover: CompressedTexture2D
+@export var creditsTextNoHover: CompressedTexture2D
+@export var creditsTextOnHover: CompressedTexture2D
+@export var fleeTextNoHover: CompressedTexture2D
+@export var fleeTextOnHover: CompressedTexture2D
+
+
 signal end(result: bool)
 var score = 0
 var hp = 3
@@ -19,9 +27,10 @@ func _process(delta):
 	pass
 
 
-func _on_button_pressed():
+func _on_play_pressed():
 	$curtain/AnimationPlayer.play("curtain")
 	await $curtain/AnimationPlayer.animation_finished
+	$Control.visible = false
 	gaymes.shuffle()
 	for i in range($game/actualgame.get_child_count()):
 		$game/actualgame.get_child(i).queue_free()
@@ -69,3 +78,27 @@ func game_finished(result):
 
 func gameend():
 	$transitions/VideoStreamPlayer.stream = rotato
+
+
+func _on_play_mouse_entered():
+	$Control/TextureRect/play.icon = playTextOnHover
+
+func _on_play_mouse_exited():
+	$Control/TextureRect/play.icon = playTextNoHover
+
+
+func _on_credits_mouse_entered():
+	$Control/TextureRect/credits.icon = creditsTextOnHover
+
+
+func _on_credits_mouse_exited():
+	$Control/TextureRect/credits.icon = creditsTextNoHover
+
+
+func _on_flee_mouse_entered():
+	$Control/TextureRect/flee.icon = fleeTextOnHover
+
+
+func _on_flee_mouse_exited():
+	$Control/TextureRect/flee.icon = fleeTextNoHover
+

@@ -38,15 +38,16 @@ func _input(event):
 
 	if event is InputEventKey and event.pressed and event.keycode != lastkeycode and pulsing.length() != 0:
 		lastkeycode = event.keycode
-		$AnimationPlayer.play("type")
-		$typewriter/kartka.position.x += -30
-		print(event.as_text(), pulsing[0])
-
 		var input = event.as_text().to_lower()
 		if event.keycode in [KEY_CTRL, KEY_SHIFT, KEY_ALT]:
 			return
 		if event.keycode == KEY_SPACE:
 			input = " "
+		$AnimationPlayer.play("type")
+		$typewriter/kartka.position.x += -30
+		print(event.as_text(), pulsing[0])
+
+		
 			
 		if input == pulsing[0].to_lower():
 			label.text = label.text.substr(0, donelen) + pulsing[0]
