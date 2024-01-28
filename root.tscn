@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://assets/right.jpg" id="4_pliw5"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
-[ext_resource type="PackedScene" uid="uid://d3hvqb802f4xo" path="res://games/tophat.tscn" id="6_y41ky"]
+[ext_resource type="PackedScene" path="res://games/tophat.tscn" id="6_y41ky"]
 [ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
 [ext_resource type="VideoStream" path="res://assets/succ.ogv" id="8_t3bye"]
 [ext_resource type="Texture2D" uid="uid://cvvb2jtspy8a8" path="res://assets/main_menu/button_play_hover.png" id="10_dgfnc"]
@@ -169,4 +169,3 @@ visible = false
 [connection signal="mouse_entered" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_exited"]
 [connection signal="pressed" from="Control/TextureRect/flee" to="." method="_on_flee_pressed"]
-[connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]
