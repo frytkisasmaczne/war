@@ -159,14 +159,6 @@ libraries = {
 
 [node name="ui" type="Node2D" parent="."]
 
-[node name="Button" type="Button" parent="ui"]
-offset_left = 97.0
-offset_top = 66.0
-offset_right = 254.0
-offset_bottom = 97.0
-focus_mode = 0
-text = "lets gooooooooooo"
-
 [connection signal="mouse_entered" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_exited"]
 [connection signal="mouse_entered" from="Control/TextureRect/play" to="." method="_on_play_mouse_entered"]
@@ -174,4 +166,3 @@ text = "lets gooooooooooo"
 [connection signal="pressed" from="Control/TextureRect/play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_exited"]
-[connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]
