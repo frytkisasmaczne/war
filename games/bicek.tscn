@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bstsj6b06q0vc"]
+[gd_scene load_steps=7 format=3 uid="uid://bstsj6b06q0vc"]
 
 [ext_resource type="Script" path="res://games/bicek.gd" id="1_8rerg"]
 [ext_resource type="SpriteFrames" uid="uid://bn53qch36jcyn" path="res://assets/renki.tres" id="2_ouptr"]
 [ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="4_0tsf4"]
 [ext_resource type="VideoStream" path="res://assets/minigame_arm_WinScene.ogv" id="5_gs1r3"]
 [ext_resource type="PackedScene" uid="uid://do4ikbfga838e" path="res://ControlsInstruction.tscn" id="5_pppbd"]
+[ext_resource type="Texture2D" uid="uid://rpq7ays7swjq" path="res://assets/Minigame_arm_end_screen.png" id="6_j4x5o"]
 
 [node name="Bicek" type="Node2D"]
 script = ExtResource("1_8rerg")
@@ -31,3 +32,9 @@ offset_bottom = 40.0
 stream = ExtResource("5_gs1r3")
 
 [node name="ControlInstruction" parent="." instance=ExtResource("5_pppbd")]
+
+[node name="EndScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_j4x5o")
