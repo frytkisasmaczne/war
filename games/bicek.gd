@@ -38,6 +38,6 @@ func winek():
 	$timer.text = ""
 	timer.stop()
 	$VideoStreamPlayer.play()
-	await $VideoStreamPlayer.finished
-	await get_tree().create_timer(0.5).timeout
+	#await $VideoStreamPlayer.finished
+	await get_tree().create_timer(1).timeout
 	$"../../..".end.emit(true)
