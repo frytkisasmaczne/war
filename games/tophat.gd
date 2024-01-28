@@ -78,6 +78,7 @@ func endMyLife(where):
 		get_node("showhands").visible = false
 		get_node("thumbs/up").visible = true
 		get_node("thumbs/down").visible = false
+		await get_tree().create_timer(1).timeout
 		win.play("win")
 		match where:
 			0:
@@ -89,11 +90,15 @@ func endMyLife(where):
 			2:
 				get_node("prize/GirlR").visible = true
 				get_node("prize/RabbitR").visible = true
+		await get_tree().create_timer(1).timeout
+		$"../../..".end.emit(true)
 	else: #przegrana
 		#notDone = true #odkomentuj jak chcesz żeby tylko pierwszy wybór się liczył
 		get_node("showhands").visible = false
 		get_node("thumbs/up").visible = false
 		get_node("thumbs/down").visible = true
+		await get_tree().create_timer(1).timeout
+		$"../../..".end.emit(false)
 
 func _on_left_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton and event.button_index == 1 and event.pressed and !notDone):
