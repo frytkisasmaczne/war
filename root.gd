@@ -11,7 +11,6 @@ extends Node2D
 @export var fleeTextNoHover: CompressedTexture2D
 @export var fleeTextOnHover: CompressedTexture2D
 
-
 signal end(result: bool)
 var score = 0
 var hp = 3
@@ -102,3 +101,7 @@ func _on_flee_mouse_entered():
 func _on_flee_mouse_exited():
 	$Control/TextureRect/flee.icon = fleeTextNoHover
 
+
+
+func _on_flee_pressed():
+	get_tree().quit()
