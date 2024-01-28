@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0k2tymbd4s54" path="res://assets/infinite_monkey_theorem_paper.png" id="5_pcgc4"]
 [ext_resource type="Texture2D" uid="uid://dc584cgi1t5oc" path="res://assets/infinite_monkey_theorem_typewriter.png" id="6_sl3yg"]
 [ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="11_6fngx"]
-[ext_resource type="PackedScene" path="res://ControlsInstruction.tscn" id="12_mrhyq"]
+[ext_resource type="PackedScene" uid="uid://do4ikbfga838e" path="res://ControlsInstruction.tscn" id="12_mrhyq"]
 
 [sub_resource type="Animation" id="Animation_oawve"]
 resource_name = "type"

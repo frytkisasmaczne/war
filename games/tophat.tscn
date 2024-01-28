@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d3hvqb802f4xo"]
+[gd_scene load_steps=28 format=3 uid="uid://cvc2hs7tbmpn"]
 
 [ext_resource type="Script" path="res://games/tophat.gd" id="1_a4a37"]
 [ext_resource type="Texture2D" uid="uid://bxbaemctmjotv" path="res://assets/tophats/2024-01-27_21-05-03_5026.png" id="1_hiw2o"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cxymb8834xew5" path="res://assets/tophats/thumbdown.svg" id="9_4a1q1"]
 [ext_resource type="Texture2D" uid="uid://c4qsvi8jgdlxi" path="res://assets/tophats/cup_of_chino.png" id="10_6vott"]
 [ext_resource type="Texture2D" uid="uid://cmae4swos5qfm" path="res://assets/tophats/thumbup.svg" id="11_oup4w"]
+[ext_resource type="PackedScene" uid="uid://do4ikbfga838e" path="res://ControlsInstruction.tscn" id="13_hbhys"]
 
 [sub_resource type="Animation" id="Animation_d7jth"]
 length = 0.001
@@ -444,6 +445,9 @@ shape = SubResource("RectangleShape2D_6vmyj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="choices/right"]
 position = Vector2(774, 529)
 shape = SubResource("RectangleShape2D_6vmyj")
+
+[node name="ControlInstruction" parent="choices" instance=ExtResource("13_hbhys")]
+instruction_id = 1
 
 [connection signal="input_event" from="choices/left" to="." method="_on_left_input_event"]
 [connection signal="input_event" from="choices/middle" to="." method="_on_middle_input_event"]

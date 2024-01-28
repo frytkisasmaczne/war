@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgy5615mcoqvn" path="res://games/nose.tscn" id="4_opn74"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
-[ext_resource type="PackedScene" path="res://games/tophat.tscn" id="6_y41ky"]
+[ext_resource type="PackedScene" uid="uid://cvc2hs7tbmpn" path="res://games/tophat.tscn" id="6_y41ky"]
 [ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
 [ext_resource type="VideoStream" path="res://assets/succ.ogv" id="8_t3bye"]
 [ext_resource type="Texture2D" uid="uid://cvvb2jtspy8a8" path="res://assets/main_menu/button_play_hover.png" id="10_dgfnc"]

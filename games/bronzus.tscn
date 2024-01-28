@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://slbmvrb03t58" path="res://assets/IMG_20240126_054433.jpeg" id="1_st3jf"]
 [ext_resource type="SpriteFrames" uid="uid://bb2bxso8exq7d" path="res://assets/headpat/headpat.tres" id="3_5lbo4"]
 [ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="4_fjc5i"]
-[ext_resource type="PackedScene" path="res://ControlsInstruction.tscn" id="5_3roqn"]
+[ext_resource type="PackedScene" uid="uid://do4ikbfga838e" path="res://ControlsInstruction.tscn" id="5_3roqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvnud"]
 size = Vector2(289, 125)
