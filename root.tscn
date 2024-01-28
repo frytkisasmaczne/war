@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
 [ext_resource type="PackedScene" uid="uid://cxtkk2yf7a42" path="res://games/hamlet.tscn" id="3_qab1s"]
 [ext_resource type="PackedScene" uid="uid://cgy5615mcoqvn" path="res://games/nose.tscn" id="4_opn74"]
-[ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://assets/right.jpg" id="4_pliw5"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
 [ext_resource type="PackedScene" path="res://games/tophat.tscn" id="6_y41ky"]
