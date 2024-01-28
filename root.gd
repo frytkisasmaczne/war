@@ -57,12 +57,21 @@ func game_finished(result):
 		$transitions/VideoStreamPlayer.stream = succ
 		$transitions/VideoStreamPlayer.visible = true
 		$transitions/VideoStreamPlayer.play()
+		$transitions/VideoStreamPlayer/score.text = str(score)
 	else:
 		$transitions/VideoStreamPlayer.stream = fail
 		$transitions/VideoStreamPlayer.visible = true
 		$transitions/VideoStreamPlayer.play()
 		hp -= 1
-		if hp <= 0:
+		if hp == 2:
+			$transitions/VideoStreamPlayer/maski/Sprite2D3.texture = load("res://assets/Mask_Failure.png")
+			$transitions/VideoStreamPlayer/maski/Sprite2D3.modulate.a = 0.5
+		elif hp == 1:
+			$transitions/VideoStreamPlayer/maski/Sprite2D2.texture = load("res://assets/Mask_Failure.png")
+			$transitions/VideoStreamPlayer/maski/Sprite2D2.modulate.a = 0.5
+		elif hp <= 0:
+			$transitions/VideoStreamPlayer/maski/Sprite2D.texture = load("res://assets/Mask_Failure.png")
+			$transitions/VideoStreamPlayer/maski/Sprite2D.modulate.a = 0.5
 			gameend()
 			return
 	$curtain/AnimationPlayer.play_backwards("curtain")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c77mbeeu6dy1w"]
+[gd_scene load_steps=25 format=3 uid="uid://c77mbeeu6dy1w"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_s7agp"]
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cx7o4ckkrcs2d" path="res://assets/main_menu/button_play.png" id="13_7qkix"]
 [ext_resource type="Texture2D" uid="uid://beyk3hst1rqo7" path="res://assets/main_menu/button_flee_hover.png" id="14_5bjcu"]
 [ext_resource type="Texture2D" uid="uid://clyyhq3gdamvy" path="res://assets/main_menu/button_flee.png" id="14_uooaq"]
+[ext_resource type="Texture2D" uid="uid://dkux2rgbckfqg" path="res://assets/Mask_Regular.png" id="16_6yi32"]
+[ext_resource type="SystemFont" uid="uid://gnqjn0e32aeu" path="res://assets/oldenglish.tres" id="16_hyp58"]
 [ext_resource type="Texture2D" uid="uid://jmxuv0b81jka" path="res://assets/curtain_left.png" id="16_wg2r3"]
 [ext_resource type="Texture2D" uid="uid://b0k2tymbd4s54" path="res://assets/infinite_monkey_theorem_paper.png" id="17_d5qji"]
 [ext_resource type="Texture2D" uid="uid://bu1nyri22vewf" path="res://assets/curtain_right.png" id="17_mem2j"]
@@ -103,7 +105,33 @@ fleeTextOnHover = ExtResource("14_5bjcu")
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="score" type="Label" parent="transitions/VideoStreamPlayer"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 468.0
+offset_right = 252.0
+offset_bottom = 579.0
+theme_override_fonts/font = ExtResource("16_hyp58")
+theme_override_font_sizes/font_size = 110
+text = "0"
+
+[node name="maski" type="Node2D" parent="transitions/VideoStreamPlayer"]
+position = Vector2(1044, 525)
+scale = Vector2(0.66, 0.66)
+
+[node name="Sprite2D" type="Sprite2D" parent="transitions/VideoStreamPlayer/maski"]
+texture = ExtResource("16_6yi32")
+
+[node name="Sprite2D2" type="Sprite2D" parent="transitions/VideoStreamPlayer/maski"]
+position = Vector2(-173, 0)
+texture = ExtResource("16_6yi32")
+
+[node name="Sprite2D3" type="Sprite2D" parent="transitions/VideoStreamPlayer/maski"]
+position = Vector2(-347, 0)
+texture = ExtResource("16_6yi32")
+
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -143,6 +171,7 @@ offset_bottom = 879.0
 icon = ExtResource("14_uooaq")
 
 [node name="Popup" type="Control" parent="Control"]
+visible = false
 anchors_preset = 0
 offset_right = 1610.0
 offset_bottom = 903.0
@@ -154,6 +183,7 @@ offset_bottom = 899.0
 texture = ExtResource("17_d5qji")
 
 [node name="creditsText" type="RichTextLabel" parent="Control/Popup"]
+layout_mode = 0
 offset_left = 540.268
 offset_top = 223.607
 offset_right = 1266.27
@@ -179,6 +209,7 @@ Character Design & Cutscene Art
 fit_content = true
 
 [node name="back" type="Button" parent="Control/Popup"]
+layout_mode = 0
 offset_left = 401.0
 offset_top = 812.0
 offset_right = 1226.0
