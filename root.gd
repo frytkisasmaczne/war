@@ -11,6 +11,8 @@ extends Node2D
 @export var fleeTextNoHover: CompressedTexture2D
 @export var fleeTextOnHover: CompressedTexture2D
 
+const GAME_OVER = preload("res://assets/GameOver.ogv")
+
 signal end(result: bool)
 var score = 0
 var hp = 3
@@ -76,8 +78,13 @@ func game_finished(result):
 	$game/actualgame.add_child(insta)
 
 func gameend():
-	$transitions/VideoStreamPlayer.stream = rotato
-
+	$curtain/AnimationPlayer.play_backwards("curtain")
+	await $curtain/AnimationPlayer.animation_finished
+	$transitions/VideoStreamPlayer.stream = GAME_OVER
+	$transitions/VideoStreamPlayer.visible = true
+	$transitions/VideoStreamPlayer.play()
+	await $transitions/VideoStreamPlayer.finished
+	get_tree().quit()
 
 func _on_play_mouse_entered():
 	$Control/TextureRect/play.icon = playTextOnHover
