@@ -3,10 +3,7 @@
 [ext_resource type="Script" path="res://root.gd" id="1_s7agp"]
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
 [ext_resource type="PackedScene" uid="uid://cxtkk2yf7a42" path="res://games/hamlet.tscn" id="3_qab1s"]
-[ext_resource type="Texture2D" uid="uid://cw3gdswut3lvl" path="res://assets/left.jpg" id="3_xfard"]
 [ext_resource type="PackedScene" uid="uid://cgy5615mcoqvn" path="res://games/nose.tscn" id="4_opn74"]
-[ext_resource type="PackedScene" uid="uid://d3hvqb802f4xo" path="res://games/tophat.tscn" id="4_avatu"]
-[ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://assets/right.jpg" id="4_pliw5"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
 [ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
@@ -18,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cx7o4ckkrcs2d" path="res://assets/main_menu/button_play.png" id="13_7qkix"]
 [ext_resource type="Texture2D" uid="uid://beyk3hst1rqo7" path="res://assets/main_menu/button_flee_hover.png" id="14_5bjcu"]
 [ext_resource type="Texture2D" uid="uid://clyyhq3gdamvy" path="res://assets/main_menu/button_flee.png" id="14_uooaq"]
+[ext_resource type="Texture2D" uid="uid://jmxuv0b81jka" path="res://assets/curtain_left.png" id="16_wg2r3"]
+[ext_resource type="Texture2D" uid="uid://bu1nyri22vewf" path="res://assets/curtain_right.png" id="17_mem2j"]
 
 [sub_resource type="Animation" id="Animation_k8bus"]
 resource_name = "curtain"
@@ -25,26 +24,26 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("left:position")
+tracks/0/path = NodePath("left:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 311.711), Vector2(156.173, 311.711)]
+"values": [Vector2(0, 1), Vector2(0.557261, 0.927944)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("left:scale")
+tracks/1/path = NodePath("left:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 1), Vector2(1, 1)]
+"values": [Vector2(0, 311.711), Vector2(157.52, 299.726)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -56,7 +55,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(621.827, 309.855), Vector2(465.827, 309.855)]
+"values": [Vector2(621.827, 309.855), Vector2(466.905, 300.429)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -68,7 +67,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 1), Vector2(1, 1)]
+"values": [Vector2(0, 1), Vector2(0.541329, 0.93103)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gfa85"]
@@ -145,13 +144,13 @@ scale = Vector2(1.85691, 1.07792)
 
 [node name="left" type="Sprite2D" parent="curtain"]
 position = Vector2(0, 311.711)
-scale = Vector2(1e-05, 0.995072)
-texture = ExtResource("3_xfard")
+scale = Vector2(1e-05, 1)
+texture = ExtResource("16_wg2r3")
 
 [node name="right" type="Sprite2D" parent="curtain"]
 position = Vector2(621.827, 309.855)
 scale = Vector2(1e-05, 1)
-texture = ExtResource("4_pliw5")
+texture = ExtResource("17_mem2j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="curtain"]
 libraries = {
