@@ -2,6 +2,8 @@ extends Node2D
 
 @export var gaymes: Array[PackedScene]
 @export var rotato: VideoStreamTheora
+@export var fail: VideoStreamTheora
+@export var succ: VideoStreamTheora
 signal end(result: bool)
 var hp = 3
 
@@ -27,23 +29,41 @@ func _on_button_pressed():
 	$transitions/VideoStreamPlayer.play()
 	$curtain/AnimationPlayer.play_backwards("curtain")
 	await $curtain/AnimationPlayer.animation_finished
-	$game/actualgame.add_child(gaymes[0].instantiate())
+	var insta = gaymes[0].instantiate()
 	await $transitions/VideoStreamPlayer.finished
 	$transitions/VideoStreamPlayer.visible = false
+	$game/actualgame.add_child(insta)
 
 
 func game_finished(result):
-	print("what")
+	$curtain/AnimationPlayer.play("curtain")
+	await $curtain/AnimationPlayer.animation_finished
+	for i in range($game/actualgame.get_child_count()):
+		$game/actualgame.get_child(i).queue_free()
+	
 	if result:
-		print("hello happy world")
+		$transitions/VideoStreamPlayer.stream = succ
+		$transitions/VideoStreamPlayer.visible = true
+		$transitions/VideoStreamPlayer.play()
 	else:
-		print("goodbye sad world")
+		$transitions/VideoStreamPlayer.stream = fail
+		$transitions/VideoStreamPlayer.visible = true
+		$transitions/VideoStreamPlayer.play()
 		hp -= 1
 		if hp <= 0:
 			gameend()
 			return
-	_on_button_pressed()
-
+	$curtain/AnimationPlayer.play_backwards("curtain")
+	await $curtain/AnimationPlayer.animation_finished
+	await $transitions/VideoStreamPlayer.finished
+	$transitions/VideoStreamPlayer.stream = rotato
+	$transitions/VideoStreamPlayer.visible = true
+	$transitions/VideoStreamPlayer.play()
+	gaymes.shuffle()
+	var insta = gaymes[0].instantiate()
+	await $transitions/VideoStreamPlayer.finished
+	$transitions/VideoStreamPlayer.visible = false
+	$game/actualgame.add_child(insta)
 
 func gameend():
 	$transitions/VideoStreamPlayer.stream = rotato

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c77mbeeu6dy1w"]
+[gd_scene load_steps=13 format=3 uid="uid://c77mbeeu6dy1w"]
 
 [ext_resource type="Script" path="res://root.gd" id="1_s7agp"]
 [ext_resource type="PackedScene" uid="uid://b6nnr4jm1kmvg" path="res://games/bronzus.tscn" id="2_4mpov"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bpex6fja6g5ke" path="res://assets/right.jpg" id="4_pliw5"]
 [ext_resource type="PackedScene" uid="uid://bstsj6b06q0vc" path="res://games/bicek.tscn" id="5_frrt1"]
 [ext_resource type="VideoStream" path="res://assets/rotato.ogv" id="6_wbiou"]
+[ext_resource type="VideoStream" path="res://assets/fail.ogv" id="7_7xglk"]
+[ext_resource type="VideoStream" path="res://assets/succ.ogv" id="8_t3bye"]
 
 [sub_resource type="Animation" id="Animation_k8bus"]
 resource_name = "curtain"
@@ -70,6 +72,8 @@ _data = {
 script = ExtResource("1_s7agp")
 gaymes = Array[PackedScene]([ExtResource("2_4mpov"), ExtResource("3_qab1s"), ExtResource("4_opn74"), ExtResource("5_frrt1")])
 rotato = ExtResource("6_wbiou")
+fail = ExtResource("7_7xglk")
+succ = ExtResource("8_t3bye")
 
 [node name="game" type="Node2D" parent="."]
 
