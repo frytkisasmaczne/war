@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bb2bxso8exq7d"]
+
+[ext_resource type="Texture2D" uid="uid://cs0qobpior4nl" path="res://assets/headpat/headpat-hand-0.png" id="1_ll2o6"]
+[ext_resource type="Texture2D" uid="uid://b2g3ubhn7v51i" path="res://assets/headpat/headpat-hand-1.png" id="2_o2qdx"]
+[ext_resource type="Texture2D" uid="uid://cshanu3vpp8cq" path="res://assets/headpat/headpat-hand-2.png" id="3_g4wvw"]
+[ext_resource type="Texture2D" uid="uid://ju3ua5yalwgu" path="res://assets/headpat/headpat-hand-3.png" id="4_x3klu"]
+[ext_resource type="Texture2D" uid="uid://sjeorv7vnj22" path="res://assets/headpat/headpat-hand-4.png" id="5_bcihd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ll2o6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o2qdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g4wvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x3klu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bcihd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

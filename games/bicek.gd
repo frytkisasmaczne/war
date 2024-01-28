@@ -9,7 +9,7 @@ func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	timer.timeout.connect(lose)
-	timer.start(5)
+	timer.start(10)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
