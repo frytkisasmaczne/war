@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3hvqb802f4xo"]
+[gd_scene load_steps=27 format=3 uid="uid://d3hvqb802f4xo"]
 
 [ext_resource type="Script" path="res://games/tophat.gd" id="1_a4a37"]
 [ext_resource type="Texture2D" uid="uid://bxbaemctmjotv" path="res://assets/tophats/2024-01-27_21-05-03_5026.png" id="1_hiw2o"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b5m0wd5io46mp" path="res://assets/tophats/lhand.svg" id="5_53ker"]
 [ext_resource type="Texture2D" uid="uid://bxi8crpgs85u4" path="res://assets/tophats/rhand.svg" id="6_f8hov"]
 [ext_resource type="Texture2D" uid="uid://b0jtjqdiipyuk" path="res://assets/tophats/openhand.svg" id="6_ntce8"]
+[ext_resource type="Texture2D" uid="uid://cxymb8834xew5" path="res://assets/tophats/thumbdown.svg" id="9_4a1q1"]
+[ext_resource type="Texture2D" uid="uid://c4qsvi8jgdlxi" path="res://assets/tophats/cup_of_chino.png" id="10_6vott"]
+[ext_resource type="Texture2D" uid="uid://cmae4swos5qfm" path="res://assets/tophats/thumbup.svg" id="11_oup4w"]
 
 [sub_resource type="Animation" id="Animation_d7jth"]
 length = 0.001
@@ -128,6 +131,26 @@ _data = {
 "bunny_drop": SubResource("Animation_um0ow")
 }
 
+[sub_resource type="Animation" id="Animation_kgbb6"]
+resource_name = "win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fefdq"]
+_data = {
+"win": SubResource("Animation_kgbb6")
+}
+
 [sub_resource type="Animation" id="Animation_vhv7c"]
 resource_name = "change_right"
 length = 0.2
@@ -227,6 +250,9 @@ _data = {
 "change_middle": SubResource("Animation_m3p5s")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vmyj"]
+size = Vector2(193, 173)
+
 [node name="Tophat" type="Node2D"]
 script = ExtResource("1_a4a37")
 
@@ -238,7 +264,7 @@ texture = ExtResource("1_hiw2o")
 [node name="jester" type="Node2D" parent="."]
 
 [node name="Head" type="Sprite2D" parent="jester"]
-position = Vector2(656.789, 233.255)
+position = Vector2(566, 238)
 scale = Vector2(0.408516, 0.408516)
 texture = ExtResource("4_7lu4t")
 
@@ -277,16 +303,43 @@ position = Vector2(346.914, 261.832)
 scale = Vector2(0.462264, 0.462264)
 texture = ExtResource("3_cky06")
 
+[node name="showhands" type="Node2D" parent="."]
+visible = false
+
+[node name="leftopen" type="Sprite2D" parent="showhands"]
+position = Vector2(780, 337)
+rotation = 2.39285
+scale = Vector2(-0.413, 0.413)
+texture = ExtResource("6_ntce8")
+
+[node name="rightopen" type="Sprite2D" parent="showhands"]
+position = Vector2(345, 334)
+rotation = -2.39285
+scale = Vector2(0.412698, 0.412698)
+texture = ExtResource("6_ntce8")
+
+[node name="thumbs" type="Node2D" parent="."]
+
+[node name="up" type="Sprite2D" parent="thumbs"]
+visible = false
+position = Vector2(400, 281)
+scale = Vector2(0.451724, 0.451724)
+texture = ExtResource("11_oup4w")
+
+[node name="down" type="Sprite2D" parent="thumbs"]
+visible = false
+position = Vector2(398, 342)
+scale = Vector2(0.442811, 0.442811)
+texture = ExtResource("9_4a1q1")
+
 [node name="onehand" type="Node2D" parent="."]
 visible = false
-position = Vector2(220, -150)
 
 [node name="rabbit" type="Sprite2D" parent="onehand"]
 position = Vector2(334, 392)
 rotation = 3.59014
 scale = Vector2(0.426101, 0.426101)
 texture = ExtResource("3_cky06")
-offset = Vector2(-320, -650)
 
 [node name="grip" type="Sprite2D" parent="onehand"]
 position = Vector2(365, 290)
@@ -299,18 +352,50 @@ libraries = {
 "": SubResource("AnimationLibrary_jq3vp")
 }
 
-[node name="hats" type="Node2D" parent="."]
+[node name="prize" type="Node2D" parent="."]
+position = Vector2(0, -120)
 
-[node name="pize" type="Node2D" parent="hats"]
+[node name="GirlL" type="Sprite2D" parent="prize"]
 visible = false
+position = Vector2(340.298, 551.11)
+scale = Vector2(0.150932, 0.150932)
+texture = ExtResource("10_6vott")
 
-[node name="Rabbit" type="Sprite2D" parent="hats/pize"]
+[node name="RabbitL" type="Sprite2D" parent="prize"]
 visible = false
-position = Vector2(565, 531)
-scale = Vector2(0.468553, 0.468553)
+position = Vector2(343, 477.45)
+scale = Vector2(0.272012, 0.272012)
 texture = ExtResource("3_cky06")
 
-[node name="Girl" type="Sprite2D" parent="hats/pize"]
+[node name="GirlM" type="Sprite2D" parent="prize"]
+position = Vector2(561.5, 568.039)
+scale = Vector2(0.151562, 0.151562)
+texture = ExtResource("10_6vott")
+
+[node name="RabbitM" type="Sprite2D" parent="prize"]
+visible = false
+position = Vector2(563, 493)
+scale = Vector2(0.2697, 0.2697)
+texture = ExtResource("3_cky06")
+
+[node name="GirlR" type="Sprite2D" parent="prize"]
+visible = false
+position = Vector2(775.298, 552.11)
+scale = Vector2(0.150932, 0.150932)
+texture = ExtResource("10_6vott")
+
+[node name="RabbitR" type="Sprite2D" parent="prize"]
+visible = false
+position = Vector2(778, 478.45)
+scale = Vector2(0.272012, 0.272012)
+texture = ExtResource("3_cky06")
+
+[node name="win_anim" type="AnimationPlayer" parent="prize"]
+libraries = {
+"": SubResource("AnimationLibrary_fefdq")
+}
+
+[node name="hats" type="Node2D" parent="."]
 
 [node name="LHat" type="Sprite2D" parent="hats"]
 position = Vector2(341, 526)
@@ -339,3 +424,27 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_tqy54")
 }
+
+[node name="choices" type="Node2D" parent="."]
+
+[node name="left" type="Area2D" parent="choices"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="choices/left"]
+position = Vector2(341.5, 525.5)
+shape = SubResource("RectangleShape2D_6vmyj")
+
+[node name="middle" type="Area2D" parent="choices"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="choices/middle"]
+position = Vector2(562, 541)
+shape = SubResource("RectangleShape2D_6vmyj")
+
+[node name="right" type="Area2D" parent="choices"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="choices/right"]
+position = Vector2(774, 529)
+shape = SubResource("RectangleShape2D_6vmyj")
+
+[connection signal="input_event" from="choices/left" to="." method="_on_left_input_event"]
+[connection signal="input_event" from="choices/middle" to="." method="_on_middle_input_event"]
+[connection signal="input_event" from="choices/right" to="." method="_on_right_input_event"]
