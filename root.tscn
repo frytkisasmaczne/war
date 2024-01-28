@@ -145,7 +145,7 @@ scale = Vector2(1.85691, 1.07792)
 
 [node name="left" type="Sprite2D" parent="curtain"]
 position = Vector2(0, 311.711)
-scale = Vector2(1e-05, 1)
+scale = Vector2(1e-05, 0.995072)
 texture = ExtResource("3_xfard")
 
 [node name="right" type="Sprite2D" parent="curtain"]
@@ -158,6 +158,17 @@ libraries = {
 "": SubResource("AnimationLibrary_gfa85")
 }
 
+[node name="ui" type="Node2D" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="ui"]
+offset_left = 97.0
+offset_top = 66.0
+offset_right = 254.0
+offset_bottom = 97.0
+focus_mode = 0
+text = "lets gooooooooooo"
+
 [connection signal="mouse_entered" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/credits" to="." method="_on_credits_mouse_exited"]
 [connection signal="mouse_entered" from="Control/TextureRect/play" to="." method="_on_play_mouse_entered"]
@@ -165,3 +176,5 @@ libraries = {
 [connection signal="pressed" from="Control/TextureRect/play" to="." method="_on_play_pressed"]
 [connection signal="mouse_entered" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_entered"]
 [connection signal="mouse_exited" from="Control/TextureRect/flee" to="." method="_on_flee_mouse_exited"]
+[connection signal="pressed" from="Control/TextureRect/flee" to="." method="_on_flee_pressed"]
+[connection signal="pressed" from="ui/Button" to="." method="_on_button_pressed"]
